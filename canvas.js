@@ -10,6 +10,8 @@ canvas.height = 595;
 
 //c = context
 var c = canvas.getContext('2d');
+var grid = new drawGrid(c);
+var img = new Image();
 //fillRect(x, y, width, height)
 c.fillStyle = "rgba(255, 0, 0, 0.5)";
 c.fillRect(100, 100, 100, 100);
@@ -30,26 +32,39 @@ c.strokeStyle = "blue";
 c.stroke();
 
 ////////
-//var canvas = document.getElementById('viewport'),
-//context = canvas.getContext('2d');
-
-make_base();
-
 function make_base(){
   base_image = new Image();
   base_image.src = 'BeachLandscape.png';
   base_image.onload = function(){
     //context.drawImage(base_image, 0, 0);
     c.drawImage(base_image, 0, 0);
+    drawGrid();
   };
+
 }
+function drawGrid(){
+  c.beginPath();
+  c.moveTo(50, 0);
+  c.lineTo(50, 595);
+  c.moveTo(100, 595);
+  c.lineTo(100, 0);
+  c.stroke();
+}
+
+make_base();
+
+
 /////// Printable
 download.addEventListener("click", function() {
   // only jpeg is supported by jsPDF
   alert("Hello! I am an alert box!!");
   var imgData = canvas.toDataURL("image/jpeg", 1.0);
-  var pdf = new jsPDF('landscape');
+  var pdf = new jsPDF({
+    orientation: 'landscape',
+    unit: 'in',
+    format: 'letter'
+  });
 
-  pdf.addImage(imgData, 'JPEG', 0, 0, 842, 595);
+  pdf.addImage(imgData, 'JPEG', 0, 0, 8.5, 11);
   pdf.save("download.pdf");
 }, false);
