@@ -37,7 +37,7 @@ make_base();
 
 function make_base(){
   base_image = new Image();
-  base_image.src = 'ghostly.JPG';
+  base_image.src = 'BeachLandscape.png';
   base_image.onload = function(){
     //context.drawImage(base_image, 0, 0);
     c.drawImage(base_image, 0, 0);
@@ -48,7 +48,7 @@ download.addEventListener("click", function() {
   // only jpeg is supported by jsPDF
   alert("Hello! I am an alert box!!");
   var imgData = canvas.toDataURL("image/jpeg", 1.0);
-  var pdf = new jsPDF();
+  var pdf = new jsPDF('landscape');
 
   pdf.addImage(imgData, 'JPEG', 0, 0);
   pdf.save("download.pdf");
