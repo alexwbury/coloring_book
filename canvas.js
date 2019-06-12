@@ -44,19 +44,12 @@ function make_base(){
   };
 }
 /////// Printable
-function ExportPdf(){
-kendo.drawing
-    .drawDOM(canvas,
-    {
-        forcePageBreak: ".page-break",
-        paperSize: "A4",
-        margin: { top: "1cm", bottom: "1cm" },
-        scale: 0.8,
-        height: 500,
-        template: $("#page-template").html(),
-        keepTogether: ".prevent-split"
-    })
-        .then(function(group){
-        kendo.drawing.pdf.saveAs(group, "Exported_Itinerary.pdf");
-    });
-}
+download.addEventListener("click", function() {
+  // only jpeg is supported by jsPDF
+  alert("Hello! I am an alert box!!");
+  var imgData = canvas.toDataURL("image/jpeg", 1.0);
+  var pdf = new jsPDF();
+
+  pdf.addImage(imgData, 'JPEG', 0, 0);
+  pdf.save("download.pdf");
+}, false);
