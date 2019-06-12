@@ -5,8 +5,9 @@ var canvas = document.querySelector('canvas');
 // A4 rounding
 //canvas.width = 595;
 //canvas.height = 842;
-canvas.width = 842;
-canvas.height = 595;
+var inches = 25;
+canvas.width = 11*inches;
+canvas.height = 8.5*inches;
 
 //c = context
 var c = canvas.getContext('2d');
@@ -37,17 +38,27 @@ function make_base(){
   base_image.src = 'BeachLandscape.png';
   base_image.onload = function(){
     //context.drawImage(base_image, 0, 0);
-    c.drawImage(base_image, 0, 0);
+    c.drawImage(base_image, 0, 0, canvas.width, canvas.height);
     drawGrid();
   };
 
 }
 function drawGrid(){
   c.beginPath();
-  c.moveTo(50, 0);
-  c.lineTo(50, 595);
-  c.moveTo(100, 595);
-  c.lineTo(100, 0);
+  c.strokeStyle = "rgba(0, 0, 255, 0.2)";
+  var xpos;
+  for(var d=1; d<16; d++){
+    xpos = 50*d;
+    c.moveTo(xpos, 0);
+    c.lineTo(xpos, 595);
+  }
+  c.stroke();
+  var ypos;
+  for(var v=1; v<11; v++){
+    ypos = 50*v;
+    c.moveTo(0, ypos);
+    c.lineTo(842, ypos);
+  }
   c.stroke();
 }
 
@@ -65,6 +76,6 @@ download.addEventListener("click", function() {
     format: 'letter'
   });
 
-  pdf.addImage(imgData, 'JPEG', 0, 0, 8.5, 11);
+  pdf.addImage(imgData, 'JPEG', 0, 0, 11, 8.5);
   pdf.save("download.pdf");
 }, false);
