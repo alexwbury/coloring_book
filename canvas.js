@@ -5,7 +5,7 @@ var canvas = document.querySelector('canvas');
 // A4 rounding
 //canvas.width = 595;
 //canvas.height = 842;
-var inches = 25;
+var inches = 100;
 canvas.width = 11*inches;
 canvas.height = 8.5*inches;
 
@@ -39,7 +39,7 @@ function make_base(){
   base_image.onload = function(){
     //context.drawImage(base_image, 0, 0);
     c.drawImage(base_image, 0, 0, canvas.width, canvas.height);
-    drawGrid();
+    //drawGrid();
   };
 
 }
