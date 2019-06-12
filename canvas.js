@@ -50,6 +50,6 @@ download.addEventListener("click", function() {
   var imgData = canvas.toDataURL("image/jpeg", 1.0);
   var pdf = new jsPDF('landscape');
 
-  pdf.addImage(imgData, 'JPEG', 0, 0);
+  pdf.addImage(imgData, 'JPEG', 0, 0, 842, 595);
   pdf.save("download.pdf");
 }, false);
