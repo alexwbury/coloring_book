@@ -6,9 +6,19 @@ var canvas = document.querySelector('canvas');
 //canvas.width = 595;
 //canvas.height = 842;
 var inches = 100;
-canvas.width = 11*inches;
-canvas.height = 8.5*inches;
+//canvas.width = 11*inches;
+//canvas.height = 8.5*inches;
+canvas.width = 793;
+canvas.height = 613;
+var ctx = canvas.getContext('2d');
 
+///var light = rgb(170, 170, 170);
+//var dark = rgb(0, 0, 0);
+//var empty = rgb(255, 255, 255);
+
+draw(ctx);
+
+/*
 //c = context
 var c = canvas.getContext('2d');
 var grid = new drawGrid(c);
@@ -39,23 +49,24 @@ function make_base(){
   base_image.onload = function(){
     //context.drawImage(base_image, 0, 0);
     c.drawImage(base_image, 0, 0, canvas.width, canvas.height);
-    //drawGrid();
+    drawGrid();
   };
-
 }
 function drawGrid(){
   c.beginPath();
   c.strokeStyle = "rgba(0, 0, 255, 0.2)";
   var xpos;
-  for(var d=1; d<16; d++){
-    xpos = 50*d;
+  var xscale= 11*inches/2;
+  for(var d=1; d<xscale; d++){
+    xpos = inches/2*d;
     c.moveTo(xpos, 0);
     c.lineTo(xpos, 595);
   }
   c.stroke();
   var ypos;
-  for(var v=1; v<11; v++){
-    ypos = 50*v;
+  var yscale= 8.5*inches/2;
+  for(var v=1; v<yscale; v++){
+    ypos = inches/2*v;
     c.moveTo(0, ypos);
     c.lineTo(842, ypos);
   }
@@ -63,7 +74,7 @@ function drawGrid(){
 }
 
 make_base();
-
+*/
 
 /////// Printable
 download.addEventListener("click", function() {
