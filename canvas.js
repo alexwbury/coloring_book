@@ -16,6 +16,8 @@ var ctx = canvas.getContext('2d');
 //var dark = rgb(0, 0, 0);
 //var empty = rgb(255, 255, 255);
 
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 draw(ctx);
 
 /*
