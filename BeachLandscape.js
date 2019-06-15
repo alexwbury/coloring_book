@@ -8,9 +8,9 @@
     }
 
 */
-var light = rgb(170, 170, 170);
-var dark = rgb(0, 0, 0);
-var empty = rgb(255, 255, 255);
+var light = "rgb(170, 170, 170)";
+var dark = "rgb(0, 0, 0)";
+var empty = "rgb(255, 255, 255)";
 
     function draw(ctx) {
 
@@ -23,7 +23,8 @@ var empty = rgb(255, 255, 255);
       ctx.lineTo(792.5, 0.5);
       ctx.lineTo(792.5, 129.8);
       ctx.closePath();
-      ctx.strokeStyle = "rgb(71, 104, 176)";
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = 2;
       ctx.stroke();
 
       // sky/Path
@@ -34,6 +35,8 @@ var empty = rgb(255, 255, 255);
       ctx.bezierCurveTo(216.9, 101.6, 228.8, 99.2, 230.6, 107.9);
       ctx.bezierCurveTo(230.9, 109.8, 209.5, 110.2, 209.5, 109.2);
       ctx.closePath();
+      ctx.strokeStyle = light;
+      ctx.lineWidth = 1;
       ctx.stroke();
 
       // sky/Path
@@ -197,7 +200,7 @@ var empty = rgb(255, 255, 255);
       ctx.bezierCurveTo(713.2, 276.2, 727.7, 274.3, 734.2, 270.8);
       ctx.bezierCurveTo(740.0, 267.8, 744.9, 269.7, 753.2, 272.3);
       ctx.bezierCurveTo(761.0, 274.8, 786.8, 271.0, 792.5, 267.3);
-      ctx.strokeStyle = "rgb(71, 187, 179)";
+      ctx.strokeStyle = dark;
       ctx.stroke();
 
       // water/Path
@@ -222,6 +225,7 @@ var empty = rgb(255, 255, 255);
       ctx.bezierCurveTo(33.3, 162.8, 29.2, 167.1, 31.0, 167.5);
       ctx.bezierCurveTo(33.2, 168.0, 33.5, 168.6, 28.3, 172.2);
       ctx.closePath();
+      ctx.strokeStyle = light;
       ctx.stroke();
 
       // water/Path
@@ -334,7 +338,7 @@ var empty = rgb(255, 255, 255);
       ctx.closePath();
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
-      ctx.strokeStyle = "rgb(71, 187, 179)";
+      ctx.strokeStyle = light;
       ctx.stroke();
 
       // water/Path
@@ -853,7 +857,7 @@ var empty = rgb(255, 255, 255);
       ctx.bezierCurveTo(18.5, 494.5, 9.2, 494.6, 0.5, 493.3);
       ctx.lineTo(0.5, 392.4);
       ctx.closePath();
-      ctx.strokeStyle = "rgb(230, 155, 0)";
+      ctx.strokeStyle = light;
       ctx.stroke();
       ctx.restore();
 
@@ -877,7 +881,8 @@ var empty = rgb(255, 255, 255);
       ctx.closePath();
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
-      ctx.strokeStyle = "rgb(129, 119, 230)";
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = 2;
       ctx.stroke();
 
       // chairMetalunder/Path
@@ -889,6 +894,7 @@ var empty = rgb(255, 255, 255);
       ctx.bezierCurveTo(236.1, 332.9, 229.2, 337.5, 224.5, 340.0);
       ctx.bezierCurveTo(219.8, 342.5, 215.7, 342.2, 212.8, 338.0);
       ctx.bezierCurveTo(208.9, 332.4, 214.0, 333.8, 214.0, 333.8);
+      ctx.lineWidth = 2;
       ctx.stroke();
       ctx.restore();
 
@@ -968,13 +974,15 @@ var empty = rgb(255, 255, 255);
       ctx.closePath();
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
-      ctx.strokeStyle = "rgb(101, 161, 67)";
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = 2;
       ctx.stroke();
 
       // chairFabric/Path
       ctx.beginPath();
       ctx.moveTo(73.3, 228.0);
       ctx.lineTo(74.2, 232.8);
+      ctx.lineWidth = 1;
       ctx.stroke();
 
       // chairFabric/Path
@@ -1010,7 +1018,8 @@ var empty = rgb(255, 255, 255);
       ctx.closePath();
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
-      ctx.strokeStyle = "rgb(129, 119, 230)";
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = 2;
       ctx.stroke();
 
       // chairMetalCopy/Path
@@ -1067,7 +1076,7 @@ var empty = rgb(255, 255, 255);
       ctx.bezierCurveTo(184.9, 432.6, 187.8, 432.0, 179.2, 428.5);
       ctx.bezierCurveTo(172.5, 425.8, 177.5, 420.0, 164.8, 426.6);
       ctx.bezierCurveTo(156.4, 430.9, 159.5, 429.4, 159.5, 429.4);
-      ctx.strokeStyle = "rgb(255, 135, 131)";
+      ctx.strokeStyle = light;
       ctx.stroke();
 
       // sand/Path
@@ -1331,7 +1340,8 @@ var empty = rgb(255, 255, 255);
       ctx.closePath();
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
-      ctx.strokeStyle = "rgb(216, 14, 0)";
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = 2;
       ctx.stroke();
 
       // umbrella/Path
@@ -1388,6 +1398,8 @@ var empty = rgb(255, 255, 255);
       ctx.beginPath();
       ctx.moveTo(410.0, 64.0);
       ctx.bezierCurveTo(412.8, 66.8, 418.8, 70.2, 421.0, 70.8);
+      ctx.strokeStyle = light;
+      ctx.lineWidth = 1;
       ctx.stroke();
 
       // umbrella/Path
@@ -1424,6 +1436,7 @@ var empty = rgb(255, 255, 255);
       ctx.beginPath();
       ctx.moveTo(128.0, 2.8);
       ctx.bezierCurveTo(130.0, 5.8, 135.0, 18.0, 133.5, 19.5);
+      ctx.strokeStyle = dark;
       ctx.stroke();
 
       // umbrella/Path
@@ -1431,6 +1444,7 @@ var empty = rgb(255, 255, 255);
       ctx.moveTo(116.5, 25.3);
       ctx.bezierCurveTo(114.8, 31.8, 113.3, 51.0, 113.5, 56.8);
       ctx.bezierCurveTo(113.8, 62.5, 113.8, 62.5, 113.8, 62.5);
+      ctx.strokeStyle = light;
       ctx.stroke();
       ctx.restore();
 
@@ -1446,7 +1460,8 @@ var empty = rgb(255, 255, 255);
       ctx.closePath();
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
-      ctx.strokeStyle = "rgb(161, 0, 65)";
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = 2;
       ctx.stroke();
 
       // table/Path
@@ -1481,6 +1496,8 @@ var empty = rgb(255, 255, 255);
       ctx.bezierCurveTo(318.7, 422.3, 317.1, 424.0, 316.4, 421.5);
       ctx.bezierCurveTo(315.8, 419.0, 316.7, 419.8, 318.2, 419.3);
       ctx.bezierCurveTo(319.7, 418.8, 318.2, 415.7, 322.5, 415.6);
+      ctx.strokeStyle = light;
+      ctx.lineWidth = 1;
       ctx.stroke();
 
       // table/Compound Path
@@ -1569,6 +1586,8 @@ var empty = rgb(255, 255, 255);
       ctx.bezierCurveTo(313.8, 355.3, 283.6, 350.4, 282.3, 337.8);
       ctx.closePath();
       ctx.fill();
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = 2;
       ctx.stroke();
 
       // table/Path
