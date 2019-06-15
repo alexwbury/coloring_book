@@ -11,6 +11,8 @@
 var light = "rgb(170, 170, 170)";
 var dark = "rgb(0, 0, 0)";
 var empty = "rgb(255, 255, 255)";
+var thick = 1;
+var thin = 1;
 
     function draw(ctx) {
 
@@ -24,7 +26,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.lineTo(792.5, 129.8);
       ctx.closePath();
       ctx.strokeStyle = dark;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = thick;
       ctx.stroke();
 
       // sky/Path
@@ -36,7 +38,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.bezierCurveTo(230.9, 109.8, 209.5, 110.2, 209.5, 109.2);
       ctx.closePath();
       ctx.strokeStyle = light;
-      ctx.lineWidth = 1;
+      ctx.lineWidth = thin;
       ctx.stroke();
 
       // sky/Path
@@ -226,6 +228,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.bezierCurveTo(33.2, 168.0, 33.5, 168.6, 28.3, 172.2);
       ctx.closePath();
       ctx.strokeStyle = light;
+      ctx.lineWidth = thin;
       ctx.stroke();
 
       // water/Path
@@ -858,6 +861,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.lineTo(0.5, 392.4);
       ctx.closePath();
       ctx.strokeStyle = light;
+      ctx.lineWidth = thin;
       ctx.stroke();
       ctx.restore();
 
@@ -882,7 +886,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
       ctx.strokeStyle = dark;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = thick;
       ctx.stroke();
 
       // chairMetalunder/Path
@@ -894,7 +898,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.bezierCurveTo(236.1, 332.9, 229.2, 337.5, 224.5, 340.0);
       ctx.bezierCurveTo(219.8, 342.5, 215.7, 342.2, 212.8, 338.0);
       ctx.bezierCurveTo(208.9, 332.4, 214.0, 333.8, 214.0, 333.8);
-      ctx.lineWidth = 2;
+      ctx.lineWidth = thick;
       ctx.stroke();
       ctx.restore();
 
@@ -975,14 +979,14 @@ var empty = "rgb(255, 255, 255)";
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
       ctx.strokeStyle = dark;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = thick;
       ctx.stroke();
 
       // chairFabric/Path
       ctx.beginPath();
       ctx.moveTo(73.3, 228.0);
       ctx.lineTo(74.2, 232.8);
-      ctx.lineWidth = 1;
+      ctx.lineWidth = thin;
       ctx.stroke();
 
       // chairFabric/Path
@@ -1019,7 +1023,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
       ctx.strokeStyle = dark;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = thick;
       ctx.stroke();
 
       // chairMetalCopy/Path
@@ -1341,7 +1345,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
       ctx.strokeStyle = dark;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = thick;
       ctx.stroke();
 
       // umbrella/Path
@@ -1399,7 +1403,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.moveTo(410.0, 64.0);
       ctx.bezierCurveTo(412.8, 66.8, 418.8, 70.2, 421.0, 70.8);
       ctx.strokeStyle = light;
-      ctx.lineWidth = 1;
+      ctx.lineWidth = thin;
       ctx.stroke();
 
       // umbrella/Path
@@ -1461,7 +1465,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.fillStyle = "rgb(255, 255, 255)";
       ctx.fill();
       ctx.strokeStyle = dark;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = thick;
       ctx.stroke();
 
       // table/Path
@@ -1497,7 +1501,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.bezierCurveTo(315.8, 419.0, 316.7, 419.8, 318.2, 419.3);
       ctx.bezierCurveTo(319.7, 418.8, 318.2, 415.7, 322.5, 415.6);
       ctx.strokeStyle = light;
-      ctx.lineWidth = 1;
+      ctx.lineWidth = thin;
       ctx.stroke();
 
       // table/Compound Path
@@ -1587,7 +1591,7 @@ var empty = "rgb(255, 255, 255)";
       ctx.closePath();
       ctx.fill();
       ctx.strokeStyle = dark;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = thick;
       ctx.stroke();
 
       // table/Path
