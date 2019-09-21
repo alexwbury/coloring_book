@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Create Your Character</title>
+  <link href="styles.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+
+    <div class="row">
+      <header class="col-md-12">Create Your Character</header>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 cell-character">
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="col-md-6 cell-choices">
+        <div class="row clearFinish">
+          <div class="col-md-3 clear btn" id="clear">Clear</div>
+          <div class="col-md-6 space"></div>
+          <div class="col-md-3 finish btn" id="submit">Finish</div>
+        </div> <!-- clearFinish -->
+        <div class="row categories">
+          <div class="col-md-3 btn" id="hair">Hair</div>
+          <div class="col-md-3 btn" id="face">Face</div>
+          <div class="col-md-3 btn" id="body">Body</div>
+          <div class="col-md-3 btn" id="clothes">Clothes</div>
+        </div>
+
+      <div class="cell options" id="options">
+      </div>
+
+    </div> <!-- cell-choices -->
+  </div>
+</div><!-- row end -->
+
+  <script src="charCanvas.js"></script>
+</body>
+</html>

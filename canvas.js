@@ -18,7 +18,7 @@ var ctx = canvas.getContext('2d');
 
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
-draw(ctx);
+//draw(ctx);
 
 /*
 //c = context
@@ -77,7 +77,7 @@ function drawGrid(){
 
 make_base();
 */
-
+/*
 /////// Printable
 download.addEventListener("click", function() {
   // only jpeg is supported by jsPDF
@@ -92,3 +92,15 @@ download.addEventListener("click", function() {
   pdf.addImage(imgData, 'JPEG', 0, 0, 11, 8.5);
   pdf.save("download.pdf");
 }, false);
+*/
+
+///////////// SLIDER //////////////////////////
+
+//var slider = document.getElementById("myRange");
+//var output = document.getElementById("demo");
+//output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+//slider.oninput = function() {
+  //output.innerHTML = this.value;
+//};

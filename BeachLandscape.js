@@ -11,8 +11,337 @@
 var light = "rgb(170, 170, 170)";
 var dark = "rgb(0, 0, 0)";
 var empty = "rgb(255, 255, 255)";
-var thick = 1;
+var thick = 2;
 var thin = 1;
+
+var characterData={};
+window.onload = function () {
+    var url = document.location.href,
+        params = url.split('?')[1].split('%20'),
+        data = {}, tmp;
+    for (var g = 0, l = params.length; g < l; g++) {
+         tmp = params[g].split('=');
+         data[tmp[0]] = tmp[1];
+    }
+
+    //document.getElementById('here').innerHTML = data.name;
+    characterData = data;
+    console.log(characterData);
+    draw(ctx);
+};
+
+/////////these don't matter anymore!
+//[book,]
+var handOption = "book";
+//[band, flip, bare]
+var footOption = characterData.sa;
+//[small, med, large, buff]
+var armWeight = characterData.ar;
+
+//options
+function hands(opt){
+  if(opt == "book"){
+    // forearmBook/cover
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(211.7, 264.8);
+    ctx.lineTo(228.6, 218.1);
+    ctx.lineTo(268.1, 233.8);
+    ctx.lineTo(313.9, 222.6);
+    ctx.lineTo(314.1, 228.0);
+    ctx.lineTo(287.5, 275.5);
+    ctx.lineTo(252.8, 281.6);
+    ctx.lineTo(211.7, 264.8);
+    ctx.closePath();
+    ctx.fillStyle = "rgb(255, 255, 255)";
+    ctx.fill();
+    ctx.strokeStyle = dark;
+    ctx.lineWidth = thick;
+    ctx.stroke();
+
+    // forearmBook/cover line
+    ctx.beginPath();
+    ctx.moveTo(313.6, 223.2);
+    ctx.lineTo(286.1, 273.5);
+    ctx.lineWidth = thin;
+    ctx.stroke();
+
+    // forearmBook/pages
+    ctx.beginPath();
+    ctx.moveTo(214.6, 268.7);
+    ctx.bezierCurveTo(214.6, 268.7, 232.5, 218.0, 233.1, 217.4);
+    ctx.bezierCurveTo(233.8, 216.8, 234.6, 216.3, 235.3, 216.9);
+    ctx.bezierCurveTo(236.1, 217.5, 237.9, 222.8, 249.3, 222.0);
+    ctx.bezierCurveTo(260.6, 221.3, 267.4, 228.3, 268.9, 232.5);
+    ctx.bezierCurveTo(269.3, 233.8, 270.1, 226.5, 281.9, 227.0);
+    ctx.bezierCurveTo(293.8, 227.5, 294.8, 225.7, 302.1, 221.0);
+    ctx.bezierCurveTo(303.2, 220.3, 308.4, 224.4, 308.0, 225.6);
+    ctx.bezierCurveTo(307.1, 228.0, 284.9, 271.3, 283.8, 271.4);
+    ctx.bezierCurveTo(282.7, 271.5, 277.5, 275.4, 270.0, 274.1);
+    ctx.bezierCurveTo(269.1, 274.0, 258.4, 271.6, 253.9, 276.8);
+    ctx.bezierCurveTo(253.2, 277.5, 250.7, 273.8, 248.5, 273.5);
+    ctx.bezierCurveTo(239.8, 272.1, 237.5, 271.9, 230.9, 274.3);
+    ctx.bezierCurveTo(224.8, 276.5, 214.6, 268.7, 214.6, 268.7);
+    ctx.closePath();
+    ctx.fill();
+    ctx.lineWidth = thick;
+    ctx.stroke();
+
+    // forearmBook/pages line
+    ctx.beginPath();
+    ctx.moveTo(226.0, 266.4);
+    ctx.bezierCurveTo(229.9, 266.0, 248.5, 266.3, 253.0, 275.4);
+    ctx.bezierCurveTo(257.7, 264.3, 267.9, 233.2, 268.6, 231.9);
+    ctx.bezierCurveTo(269.4, 230.5, 253.9, 272.9, 253.6, 274.1);
+    ctx.bezierCurveTo(253.4, 275.4, 255.9, 265.8, 271.3, 270.8);
+    ctx.lineTo(281.4, 267.6);
+    ctx.bezierCurveTo(283.5, 265.0, 302.8, 230.6, 302.1, 221.0);
+    ctx.lineWidth = thin;
+    ctx.stroke();
+
+    // forearmBook/right
+    ctx.beginPath();
+    ctx.moveTo(256.8, 301.8);
+    ctx.bezierCurveTo(257.6, 296.9, 257.2, 292.9, 261.4, 287.8);
+    ctx.bezierCurveTo(264.4, 284.2, 267.0, 279.8, 268.1, 277.8);
+    ctx.bezierCurveTo(269.2, 275.8, 263.5, 260.8, 268.1, 256.5);
+    ctx.bezierCurveTo(272.8, 252.2, 277.3, 249.9, 278.2, 246.9);
+    ctx.bezierCurveTo(279.6, 242.1, 278.5, 240.1, 282.3, 241.4);
+    ctx.bezierCurveTo(285.3, 242.4, 286.9, 248.6, 285.9, 250.9);
+    ctx.bezierCurveTo(285.3, 252.3, 282.3, 253.4, 282.3, 255.4);
+    ctx.bezierCurveTo(282.3, 255.4, 287.3, 250.8, 290.3, 248.8);
+    ctx.bezierCurveTo(293.3, 246.8, 304.4, 243.9, 306.3, 244.9);
+    ctx.bezierCurveTo(308.1, 245.9, 307.6, 249.1, 307.1, 251.1);
+    ctx.bezierCurveTo(306.6, 253.1, 299.8, 254.8, 298.5, 256.8);
+    ctx.bezierCurveTo(297.6, 258.2, 297.9, 256.7, 300.6, 255.4);
+    ctx.bezierCurveTo(302.9, 254.3, 302.6, 261.3, 298.4, 263.9);
+    ctx.bezierCurveTo(297.2, 264.6, 305.1, 265.5, 297.3, 272.3);
+    ctx.bezierCurveTo(295.7, 273.5, 301.3, 275.3, 295.1, 277.8);
+    ctx.bezierCurveTo(290.8, 279.7, 285.2, 282.4, 283.4, 280.8);
+    ctx.bezierCurveTo(280.8, 278.5, 285.0, 273.9, 285.8, 272.5);
+    ctx.bezierCurveTo(286.6, 270.8, 280.3, 276.3, 282.3, 280.8);
+    ctx.bezierCurveTo(283.5, 283.5, 287.0, 301.1, 283.1, 308.5);
+    ctx.bezierCurveTo(281.2, 312.2, 280.0, 315.2, 279.1, 318.3);
+    ctx.bezierCurveTo(278.4, 320.3, 275.3, 321.2, 273.4, 322.1);
+    ctx.bezierCurveTo(271.8, 323.0, 269.1, 319.8, 261.3, 317.5);
+    ctx.bezierCurveTo(256.0, 315.9, 255.7, 307.6, 256.8, 301.8);
+    ctx.closePath();
+    ctx.fill();
+    ctx.strokeStyle = dark;
+    ctx.lineWidth = thick;
+    ctx.stroke();
+
+    // forearmBook/left
+    ctx.beginPath();
+    ctx.moveTo(204.6, 262.8);
+    ctx.bezierCurveTo(204.1, 259.4, 205.6, 244.3, 208.8, 242.1);
+    ctx.bezierCurveTo(211.3, 240.4, 215.3, 234.7, 215.6, 232.6);
+    ctx.bezierCurveTo(217.5, 227.0, 218.8, 226.2, 221.3, 225.8);
+    ctx.bezierCurveTo(222.9, 225.5, 225.9, 225.6, 225.9, 225.6);
+    ctx.lineTo(221.3, 238.2);
+    ctx.bezierCurveTo(221.3, 238.2, 220.3, 240.5, 216.4, 242.1);
+    ctx.bezierCurveTo(219.2, 241.4, 222.7, 235.8, 223.5, 235.2);
+    ctx.bezierCurveTo(224.6, 234.4, 227.1, 234.0, 228.3, 234.4);
+    ctx.bezierCurveTo(230.3, 235.2, 235.1, 233.8, 237.7, 232.5);
+    ctx.bezierCurveTo(238.6, 232.0, 239.7, 235.7, 237.9, 238.1);
+    ctx.bezierCurveTo(236.7, 239.7, 234.6, 241.7, 230.4, 242.9);
+    ctx.bezierCurveTo(228.8, 243.3, 226.5, 245.6, 226.8, 247.3);
+    ctx.bezierCurveTo(227.1, 250.2, 224.4, 256.3, 219.0, 258.3);
+    ctx.lineTo(219.4, 264.3);
+    ctx.lineTo(204.6, 262.8);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+  }
+  else{
+    return;
+  }
+}
+function feet(opt){
+  if(opt == "band"){
+    // body/sandal thick
+    ctx.beginPath();
+    ctx.moveTo(302.1, 370.8);
+    ctx.bezierCurveTo(305.2, 368.9, 315.5, 370.1, 321.5, 383.3);
+    ctx.bezierCurveTo(322.4, 385.3, 314.1, 392.0, 314.1, 392.0);
+    ctx.bezierCurveTo(313.1, 387.0, 313.4, 380.0, 308.1, 377.9);
+    ctx.fill();
+    ctx.lineWidth = thin;
+    ctx.stroke();
+    ctx.restore();
+  }
+  else if(opt == "flip"){
+    // body/flipflop sandal
+    ctx.beginPath();
+    ctx.moveTo(302.1, 372.4);
+    ctx.bezierCurveTo(306.1, 371.5, 307.6, 369.7, 308.6, 370.0);
+    ctx.bezierCurveTo(309.7, 370.4, 318.2, 379.6, 315.4, 390.7);
+    ctx.bezierCurveTo(315.4, 390.7, 310.8, 394.5, 309.6, 395.5);
+    ctx.bezierCurveTo(308.3, 396.5, 317.0, 379.7, 308.5, 370.8);
+    ctx.bezierCurveTo(307.6, 369.9, 305.2, 373.3, 303.1, 375.2);
+    ctx.fill();
+    ctx.lineWidth = thin;
+    ctx.stroke();
+    ctx.restore();
+  }
+  else{
+    return;
+  }
+}
+function arms(opt){
+  if(opt == "thin"){
+    // shoulder/fill thin
+    ctx.beginPath();
+    ctx.moveTo(191.6, 253.7);
+    ctx.bezierCurveTo(194.0, 253.3, 202.3, 254.4, 206.7, 254.5);
+    ctx.bezierCurveTo(214.4, 254.7, 227.7, 258.9, 234.9, 268.5);
+    ctx.bezierCurveTo(237.5, 272.0, 244.6, 275.8, 247.8, 277.8);
+    ctx.bezierCurveTo(253.7, 281.5, 270.4, 290.8, 273.0, 295.9);
+    ctx.bezierCurveTo(274.6, 299.2, 272.4, 299.8, 272.4, 299.8);
+    ctx.bezierCurveTo(273.5, 299.7, 287.0, 301.1, 283.1, 308.5);
+    ctx.bezierCurveTo(281.2, 312.2, 280.0, 315.2, 279.1, 318.3);
+    ctx.bezierCurveTo(278.4, 320.3, 275.3, 321.2, 273.4, 322.1);
+    ctx.bezierCurveTo(271.8, 323.0, 268.7, 321.4, 261.3, 317.5);
+    ctx.bezierCurveTo(248.5, 310.7, 235.3, 302.7, 229.6, 299.2);
+    ctx.bezierCurveTo(224.6, 296.1, 211.0, 294.1, 207.3, 296.7);
+    ctx.lineTo(191.6, 253.7);
+    ctx.closePath();
+    ctx.fill();
+
+    // shoulder/line thin
+    ctx.beginPath();
+    ctx.moveTo(279.1, 318.3);
+    ctx.bezierCurveTo(278.4, 320.3, 275.3, 321.2, 273.4, 322.1);
+    ctx.bezierCurveTo(271.8, 323.0, 269.6, 319.0, 261.3, 317.5);
+    ctx.bezierCurveTo(257.8, 316.9, 232.6, 301.0, 227.8, 298.0);
+    ctx.bezierCurveTo(222.8, 294.9, 211.0, 294.1, 207.3, 296.7);
+    ctx.lineTo(191.6, 253.7);
+    ctx.bezierCurveTo(194.0, 253.3, 202.3, 254.4, 206.7, 254.5);
+    ctx.bezierCurveTo(214.4, 254.7, 222.8, 257.8, 234.9, 268.5);
+    ctx.bezierCurveTo(238.1, 271.4, 244.7, 275.7, 247.8, 277.8);
+    ctx.bezierCurveTo(254.0, 282.0, 270.4, 290.8, 273.0, 295.9);
+    ctx.bezierCurveTo(274.6, 299.2, 272.4, 299.8, 272.4, 299.8);
+    ctx.lineWidth = thick;
+    ctx.stroke();
+    ctx.restore();
+  }
+  else if(opt == "thick"){
+    // shoulder/fill
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(191.6, 253.7);
+    ctx.bezierCurveTo(194.0, 253.3, 202.3, 254.4, 206.7, 254.5);
+    ctx.bezierCurveTo(214.4, 254.7, 227.7, 258.9, 234.9, 268.5);
+    ctx.bezierCurveTo(237.5, 272.0, 244.2, 276.9, 247.8, 277.8);
+    ctx.bezierCurveTo(254.8, 279.7, 270.4, 290.8, 273.0, 295.9);
+    ctx.bezierCurveTo(274.6, 299.2, 272.4, 299.8, 272.4, 299.8);
+    ctx.bezierCurveTo(273.5, 299.7, 287.0, 301.1, 283.1, 308.5);
+    ctx.bezierCurveTo(281.2, 312.2, 280.0, 315.2, 279.1, 318.3);
+    ctx.bezierCurveTo(278.4, 320.3, 275.3, 321.2, 273.4, 322.1);
+    ctx.bezierCurveTo(271.8, 323.0, 267.1, 321.3, 258.8, 321.3);
+    ctx.bezierCurveTo(245.5, 321.1, 228.8, 308.0, 225.5, 303.4);
+    ctx.bezierCurveTo(222.1, 298.6, 212.7, 298.6, 209.0, 301.2);
+    ctx.lineTo(191.6, 253.7);
+    ctx.closePath();
+    ctx.fillStyle = "rgb(255, 255, 255)";
+    ctx.fill();
+
+    // shoulder/line
+    ctx.beginPath();
+    ctx.moveTo(279.1, 318.3);
+    ctx.bezierCurveTo(278.4, 320.3, 275.3, 321.2, 273.4, 322.1);
+    ctx.bezierCurveTo(271.8, 323.0, 267.1, 321.3, 258.8, 321.3);
+    ctx.bezierCurveTo(245.5, 321.1, 228.8, 308.0, 225.5, 303.4);
+    ctx.bezierCurveTo(222.1, 298.6, 212.7, 298.6, 209.0, 301.2);
+    ctx.lineTo(191.6, 253.7);
+    ctx.bezierCurveTo(194.0, 253.3, 202.3, 254.4, 206.7, 254.5);
+    ctx.bezierCurveTo(214.4, 254.7, 227.7, 258.9, 234.9, 268.5);
+    ctx.bezierCurveTo(237.5, 272.0, 244.2, 276.9, 247.8, 277.8);
+    ctx.bezierCurveTo(254.8, 279.7, 270.4, 290.8, 273.0, 295.9);
+    ctx.bezierCurveTo(274.6, 299.2, 272.4, 299.8, 272.4, 299.8);
+    ctx.strokeStyle = dark;
+    ctx.lineWidth = thick;
+    ctx.stroke();
+    ctx.restore();
+  }
+  else if(opt == "strong"){
+    // shoulder/fill thick
+    ctx.beginPath();
+    ctx.moveTo(191.6, 253.7);
+    ctx.bezierCurveTo(194.0, 253.3, 202.3, 254.4, 206.7, 254.5);
+    ctx.bezierCurveTo(214.4, 254.7, 227.4, 261.0, 236.5, 268.8);
+    ctx.bezierCurveTo(240.5, 272.2, 246.4, 274.8, 249.5, 276.8);
+    ctx.bezierCurveTo(255.6, 280.9, 270.4, 290.8, 273.0, 295.9);
+    ctx.bezierCurveTo(274.6, 299.2, 272.4, 299.8, 272.4, 299.8);
+    ctx.bezierCurveTo(273.5, 299.7, 287.0, 301.1, 283.1, 308.5);
+    ctx.bezierCurveTo(281.2, 312.2, 280.0, 315.2, 279.1, 318.3);
+    ctx.bezierCurveTo(278.4, 320.3, 275.3, 321.2, 273.4, 322.1);
+    ctx.bezierCurveTo(271.8, 323.0, 266.4, 323.9, 258.2, 322.6);
+    ctx.bezierCurveTo(245.8, 320.7, 229.3, 313.3, 226.0, 308.6);
+    ctx.bezierCurveTo(222.6, 303.8, 212.7, 298.6, 209.0, 301.2);
+    ctx.lineTo(191.6, 253.7);
+    ctx.closePath();
+    ctx.fill();
+
+    // shoulder/line thick
+    ctx.beginPath();
+    ctx.moveTo(279.1, 318.3);
+    ctx.bezierCurveTo(278.4, 320.3, 275.3, 321.2, 273.4, 322.1);
+    ctx.bezierCurveTo(271.8, 323.0, 264.5, 323.7, 256.3, 322.3);
+    ctx.bezierCurveTo(242.5, 319.9, 233.8, 315.5, 223.5, 306.5);
+    ctx.bezierCurveTo(219.1, 302.6, 212.7, 298.6, 209.0, 301.2);
+    ctx.lineTo(191.6, 253.7);
+    ctx.bezierCurveTo(194.0, 253.3, 202.3, 254.4, 206.7, 254.5);
+    ctx.bezierCurveTo(214.4, 254.7, 225.7, 260.7, 234.9, 268.5);
+    ctx.bezierCurveTo(237.7, 270.9, 245.7, 274.4, 249.5, 276.8);
+    ctx.bezierCurveTo(255.6, 280.7, 270.4, 290.8, 273.0, 295.9);
+    ctx.bezierCurveTo(274.6, 299.2, 272.4, 299.8, 272.4, 299.8);
+    ctx.lineWidth = thick;
+    ctx.stroke();
+  }
+  else if(opt == "buff"){
+    // shoulder/fill muscle
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(191.6, 253.7);
+    ctx.bezierCurveTo(194.0, 253.3, 201.7, 250.9, 206.1, 250.9);
+    ctx.bezierCurveTo(216.1, 250.9, 236.8, 255.8, 236.7, 271.1);
+    ctx.bezierCurveTo(236.7, 275.5, 238.7, 274.3, 242.5, 274.6);
+    ctx.bezierCurveTo(259.8, 276.1, 270.4, 290.8, 273.0, 295.9);
+    ctx.bezierCurveTo(274.6, 299.2, 272.4, 299.8, 272.4, 299.8);
+    ctx.bezierCurveTo(273.5, 299.7, 287.0, 301.1, 283.1, 308.5);
+    ctx.bezierCurveTo(281.2, 312.2, 280.0, 315.2, 279.1, 318.3);
+    ctx.bezierCurveTo(278.4, 320.3, 275.3, 321.2, 273.4, 322.1);
+    ctx.bezierCurveTo(271.8, 323.0, 267.1, 321.3, 258.8, 321.3);
+    ctx.bezierCurveTo(245.5, 321.1, 226.6, 309.6, 221.7, 302.0);
+    ctx.bezierCurveTo(218.5, 297.1, 212.7, 298.6, 209.0, 301.2);
+    ctx.lineTo(191.6, 253.7);
+    ctx.closePath();
+    ctx.fillStyle = "rgb(255, 255, 255)";
+    ctx.fill();
+
+    // shoulder/line muscle
+    ctx.beginPath();
+    ctx.moveTo(279.1, 318.3);
+    ctx.bezierCurveTo(278.4, 320.3, 275.3, 321.2, 273.4, 322.1);
+    ctx.bezierCurveTo(271.8, 323.0, 267.1, 321.3, 258.8, 321.3);
+    ctx.bezierCurveTo(245.5, 321.1, 228.0, 310.7, 221.7, 302.0);
+    ctx.bezierCurveTo(217.8, 296.6, 212.7, 298.6, 209.0, 301.2);
+    ctx.lineTo(191.6, 253.7);
+    ctx.bezierCurveTo(194.0, 253.3, 194.0, 254.4, 198.0, 252.5);
+    ctx.bezierCurveTo(209.2, 247.1, 235.5, 255.7, 236.5, 269.2);
+    ctx.bezierCurveTo(236.8, 273.6, 237.8, 274.3, 241.5, 274.5);
+    ctx.bezierCurveTo(259.5, 275.4, 270.4, 290.8, 273.0, 295.9);
+    ctx.bezierCurveTo(274.6, 299.2, 272.4, 299.8, 272.4, 299.8);
+    //ctx.strokeStyle = "rgb(164, 207, 0)";
+    ctx.lineWidth = thick;
+    ctx.stroke();
+  }
+  else{
+    return;
+  }
+}
 
     function draw(ctx) {
 
@@ -21,9 +350,6 @@ var thin = 1;
       ctx.beginPath();
       ctx.moveTo(792.5, 129.8);
       ctx.lineTo(0.5, 129.8);
-      ctx.lineTo(0.5, 0.5);
-      ctx.lineTo(792.5, 0.5);
-      ctx.lineTo(792.5, 129.8);
       ctx.closePath();
       ctx.strokeStyle = dark;
       ctx.lineWidth = thick;
@@ -865,6 +1191,47 @@ var thin = 1;
       ctx.stroke();
       ctx.restore();
 
+      // body/body base
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(242.6, 293.8);
+      ctx.bezierCurveTo(249.3, 282.1, 275.6, 267.8, 280.3, 265.5);
+      ctx.bezierCurveTo(288.8, 261.3, 303.7, 260.3, 307.6, 268.7);
+      ctx.bezierCurveTo(310.1, 274.1, 310.7, 278.9, 311.8, 283.5);
+      ctx.bezierCurveTo(313.0, 288.4, 303.8, 344.0, 302.1, 349.0);
+      ctx.bezierCurveTo(300.5, 354.0, 303.5, 354.5, 303.5, 354.5);
+      ctx.bezierCurveTo(303.5, 354.5, 294.0, 371.0, 307.4, 378.8);
+      ctx.bezierCurveTo(303.4, 376.3, 302.8, 374.8, 301.5, 372.7);
+      ctx.bezierCurveTo(301.3, 368.1, 303.6, 365.9, 306.2, 365.9);
+      ctx.bezierCurveTo(307.4, 365.8, 307.8, 367.0, 309.1, 367.2);
+      ctx.bezierCurveTo(309.9, 366.0, 312.9, 367.8, 312.3, 368.7);
+      ctx.bezierCurveTo(313.0, 370.2, 321.6, 371.1, 322.9, 374.3);
+      ctx.bezierCurveTo(326.5, 382.9, 303.7, 399.7, 294.7, 401.3);
+      ctx.bezierCurveTo(287.6, 402.7, 277.7, 399.0, 280.7, 390.5);
+      ctx.bezierCurveTo(283.5, 382.5, 285.9, 380.0, 280.7, 363.0);
+      ctx.bezierCurveTo(262.1, 370.4, 199.8, 380.8, 199.8, 380.8);
+      ctx.lineTo(166.6, 277.1);
+      ctx.bezierCurveTo(166.6, 277.1, 197.5, 271.3, 208.5, 275.4);
+      ctx.bezierCurveTo(219.5, 279.5, 242.6, 293.8, 242.6, 293.8);
+      ctx.closePath();
+      ctx.fillStyle = "rgb(255, 255, 255)";
+      ctx.fill();
+      ctx.strokeStyle = dark;
+      ctx.lineWidth = thick;
+      ctx.stroke();
+
+      // body/ankle
+      ctx.beginPath();
+      ctx.moveTo(302.1, 383.0);
+      ctx.bezierCurveTo(302.0, 385.2, 300.5, 386.7, 298.7, 386.8);
+      ctx.bezierCurveTo(296.8, 387.0, 293.8, 385.0, 295.2, 381.7);
+      ctx.bezierCurveTo(296.5, 378.3, 297.3, 375.7, 295.7, 370.8);
+      ctx.stroke();
+
+      feet(characterData.sa); //footOption
+      //personalize is in heads.js
+      eval(personalize.head.cheeky.round + personalize.hair[2] + personalize.hair["bangsides"]);
+
       // chairMetalunder/Path
       ctx.save();
       ctx.beginPath();
@@ -1062,6 +1429,10 @@ var thin = 1;
       ctx.stroke();
       ctx.restore();
 
+      hands(handOption);
+
+      arms(characterData.ar); //armWeight
+
       // sand/Path
       ctx.save();
       ctx.beginPath();
@@ -1081,6 +1452,7 @@ var thin = 1;
       ctx.bezierCurveTo(172.5, 425.8, 177.5, 420.0, 164.8, 426.6);
       ctx.bezierCurveTo(156.4, 430.9, 159.5, 429.4, 159.5, 429.4);
       ctx.strokeStyle = light;
+      ctx.lineWidth = thin;
       ctx.stroke();
 
       // sand/Path
