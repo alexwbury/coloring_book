@@ -8,11 +8,16 @@
     }
 
 */
+
 var light = "rgb(170, 170, 170)";
 var dark = "rgb(0, 0, 0)";
 var empty = "rgb(255, 255, 255)";
 var thick = 2;
 var thin = 1;
+var image = new Image();
+//var patterns = [empty, "patterns/pat1.jpg", "patterns/pat2.jpg"];
+//////////////["umbOut", "umbIn", "sky", "ocean", "sand", "chair", "shade"];
+var patfill = [0, 0, 0, 0, 0, 0, 0];
 
 var characterData={};
 window.onload = function () {
@@ -23,12 +28,36 @@ window.onload = function () {
          tmp = params[g].split('=');
          data[tmp[0]] = tmp[1];
     }
-
     //document.getElementById('here').innerHTML = data.name;
     characterData = data;
     console.log(characterData);
+
     draw(ctx);
 };
+
+function drawPattern(patty) {
+  var img1 = document.getElementById("pat1");
+  var img2 = document.getElementById("pat2");
+  var pat;
+  if(patty==0){
+    pat = ctx.fillStyle = empty;
+  }
+  else if(patty==1){
+    pat = ctx.createPattern(img1, 'no-repeat');
+  }
+  else if(patty==2){
+    pat = ctx.createPattern(img2, 'no-repeat');
+  }
+  else{
+    console.log("oops pattern issue");
+    ctx.fillStyle = empty;
+    ctx.fill();
+  }
+  ctx.fillStyle = pat;
+  //ctx.fillStyle = empty;
+  ctx.fill();
+  return;
+}
 
 /////////these don't matter anymore!
 //[book,]
@@ -348,12 +377,20 @@ function arms(opt){
       // sky/Rectangle
       ctx.save();
       ctx.beginPath();
+      ctx.rect(0, 0, 792.5, 129.8);
+      drawPattern(patfill[2]);
+      ctx.strokeStyle = empty;
+      ctx.lineWidth = 0;
+      ctx.stroke();
+      //horizon line
+      ctx.beginPath();
       ctx.moveTo(792.5, 129.8);
       ctx.lineTo(0.5, 129.8);
       ctx.closePath();
       ctx.strokeStyle = dark;
       ctx.lineWidth = thick;
       ctx.stroke();
+
 
       // sky/Path
       ctx.beginPath();
@@ -365,7 +402,10 @@ function arms(opt){
       ctx.closePath();
       ctx.strokeStyle = light;
       ctx.lineWidth = thin;
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
+
 
       // sky/Path
       ctx.beginPath();
@@ -382,6 +422,8 @@ function arms(opt){
       ctx.bezierCurveTo(270.7, 103.8, 260.5, 104.8, 256.2, 104.8);
       ctx.bezierCurveTo(246.3, 104.8, 247.1, 104.8, 246.6, 100.5);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // sky/Path
@@ -396,6 +438,8 @@ function arms(opt){
       ctx.bezierCurveTo(460.3, 81.1, 461.8, 69.1, 435.3, 69.0);
       ctx.bezierCurveTo(411.8, 68.9, 401.3, 93.4, 405.5, 95.0);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // sky/Path
@@ -406,6 +450,8 @@ function arms(opt){
       ctx.bezierCurveTo(517.4, 88.9, 517.1, 89.2, 516.8, 88.6);
       ctx.bezierCurveTo(516.1, 86.8, 510.5, 85.6, 510.5, 92.0);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // sky/Path
@@ -423,6 +469,8 @@ function arms(opt){
       ctx.bezierCurveTo(483.8, 37.0, 484.2, 40.9, 482.8, 37.9);
       ctx.bezierCurveTo(481.6, 35.5, 471.0, 39.4, 471.8, 46.3);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // sky/Path
@@ -436,7 +484,7 @@ function arms(opt){
       ctx.bezierCurveTo(532.2, 44.5, 530.4, 34.7, 514.7, 37.2);
       ctx.bezierCurveTo(504.9, 38.7, 502.5, 54.3, 507.6, 55.2);
       ctx.closePath();
-      ctx.fillStyle = "rgb(255, 255, 255)";
+      ctx.fillStyle = empty;
       ctx.fill();
       ctx.stroke();
 
@@ -453,6 +501,8 @@ function arms(opt){
       ctx.bezierCurveTo(605.9, 41.7, 587.9, 37.6, 579.8, 51.3);
       ctx.bezierCurveTo(577.6, 54.9, 578.3, 60.2, 579.9, 62.5);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // sky/Path
@@ -462,6 +512,8 @@ function arms(opt){
       ctx.bezierCurveTo(666.0, 23.7, 662.3, 24.2, 660.7, 25.8);
       ctx.bezierCurveTo(659.0, 27.5, 659.0, 29.5, 662.2, 29.7);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // sky/Path
@@ -480,6 +532,8 @@ function arms(opt){
       ctx.bezierCurveTo(708.7, 37.8, 695.1, 35.9, 689.7, 35.2);
       ctx.bezierCurveTo(683.7, 34.3, 678.7, 31.8, 678.7, 31.8);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // sky/Path
@@ -500,10 +554,24 @@ function arms(opt){
       ctx.bezierCurveTo(679.7, 80.5, 671.5, 79.7, 666.3, 83.4);
       ctx.bezierCurveTo(662.4, 86.2, 662.3, 89.3, 667.5, 92.3);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
       ctx.restore();
 
+      //sand fillctx.beginPath();
+      ctx.beginPath();
+      ctx.rect(0.5, 200, 792, 413);
+      //ctx.fillStyle = "pink";
+      drawPattern(patfill[4]);
+      //ctx.fill();
+      ctx.lineWidth = 0;
+      ctx.strokeStyle = empty;
+      ctx.stroke();
+
+
       // water/Path
+      //ocean fill
       ctx.save();
       ctx.beginPath();
       ctx.moveTo(0.5, 222.0);
@@ -528,7 +596,11 @@ function arms(opt){
       ctx.bezierCurveTo(713.2, 276.2, 727.7, 274.3, 734.2, 270.8);
       ctx.bezierCurveTo(740.0, 267.8, 744.9, 269.7, 753.2, 272.3);
       ctx.bezierCurveTo(761.0, 274.8, 786.8, 271.0, 792.5, 267.3);
+      ctx.lineTo(792.5, 129.8);
+      ctx.lineTo(0.5, 129.8);
       ctx.strokeStyle = dark;
+      ctx.lineWidth = thin;
+      drawPattern(patfill[3]);
       ctx.stroke();
 
       // water/Path
@@ -555,6 +627,8 @@ function arms(opt){
       ctx.closePath();
       ctx.strokeStyle = light;
       ctx.lineWidth = thin;
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // water/Path
@@ -592,6 +666,8 @@ function arms(opt){
       ctx.bezierCurveTo(198.0, 160.8, 204.3, 159.9, 199.1, 159.9);
       ctx.bezierCurveTo(198.1, 159.9, 194.2, 161.3, 194.3, 165.9);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // water/Path
@@ -619,6 +695,8 @@ function arms(opt){
       ctx.bezierCurveTo(338.3, 168.7, 339.0, 166.3, 334.7, 166.3);
       ctx.bezierCurveTo(333.3, 166.3, 332.7, 166.6, 330.8, 167.3);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // water/Path
@@ -639,6 +717,8 @@ function arms(opt){
       ctx.lineTo(0.5, 216.0);
       ctx.closePath();
       ctx.strokeStyle = "rgb(154, 154, 154)";
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // water/Path
@@ -665,7 +745,7 @@ function arms(opt){
       ctx.bezierCurveTo(182.0, 192.0, 174.2, 191.8, 172.5, 195.5);
       ctx.bezierCurveTo(171.6, 197.5, 172.3, 197.0, 174.5, 197.0);
       ctx.closePath();
-      ctx.fillStyle = "rgb(255, 255, 255)";
+      ctx.fillStyle = empty;
       ctx.fill();
       ctx.strokeStyle = light;
       ctx.stroke();
@@ -678,6 +758,7 @@ function arms(opt){
       ctx.bezierCurveTo(217.5, 203.7, 217.7, 204.4, 213.5, 205.0);
       ctx.bezierCurveTo(212.5, 205.2, 207.0, 207.8, 212.2, 208.2);
       ctx.closePath();
+      ctx.fillStyle = empty;
       ctx.fill();
       ctx.stroke();
 
@@ -690,6 +771,7 @@ function arms(opt){
       ctx.bezierCurveTo(232.0, 213.5, 231.3, 211.0, 229.5, 212.2);
       ctx.bezierCurveTo(227.7, 213.3, 225.2, 214.2, 224.7, 212.2);
       ctx.closePath();
+      ctx.fillStyle = empty;
       ctx.fill();
       ctx.stroke();
 
@@ -818,6 +900,8 @@ function arms(opt){
       ctx.bezierCurveTo(386.4, 195.6, 387.8, 190.5, 399.5, 183.6);
       ctx.bezierCurveTo(411.1, 176.9, 405.8, 180.5, 399.9, 186.4);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // water/Path
@@ -957,6 +1041,8 @@ function arms(opt){
       ctx.bezierCurveTo(608.8, 221.5, 607.2, 222.1, 604.3, 223.8);
       ctx.bezierCurveTo(601.4, 225.6, 596.8, 222.3, 596.8, 222.3);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // water/Path
@@ -1072,6 +1158,8 @@ function arms(opt){
       ctx.bezierCurveTo(656.7, 257.0, 659.0, 254.9, 656.5, 256.0);
       ctx.bezierCurveTo(654.0, 257.0, 654.3, 251.8, 656.5, 250.2);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
 
       // water/Path
@@ -1145,6 +1233,8 @@ function arms(opt){
       ctx.bezierCurveTo(677.3, 226.5, 679.4, 225.0, 682.3, 225.0);
       ctx.bezierCurveTo(685.3, 225.0, 683.6, 226.2, 683.6, 226.2);
       ctx.closePath();
+      ctx.fillStyle = empty;
+      ctx.fill();
       ctx.stroke();
       ctx.restore();
 
@@ -1188,6 +1278,8 @@ function arms(opt){
       ctx.closePath();
       ctx.strokeStyle = light;
       ctx.lineWidth = thin;
+      drawPattern(patfill[6]);
+      //["umbOut", "umbIn", "sky", "ocean", "sand", "chair", "shade"];
       ctx.stroke();
       ctx.restore();
 
@@ -1343,8 +1435,9 @@ function arms(opt){
       ctx.lineTo(68.4, 240.0);
       ctx.lineTo(73.8, 237.4);
       ctx.closePath();
-      ctx.fillStyle = "rgb(255, 255, 255)";
-      ctx.fill();
+      //ctx.fillStyle = "rgb(255, 255, 255)";
+      drawPattern(patfill[5]);
+      //ctx.fill();
       ctx.strokeStyle = dark;
       ctx.lineWidth = thick;
       ctx.stroke();
@@ -1692,7 +1785,7 @@ function arms(opt){
       ctx.stroke();
       ctx.restore();
 
-      // umbrella/Path
+      // umbrella/Path - inner umbrella
       ctx.save();
       ctx.beginPath();
       ctx.moveTo(0.5, 14.2);
@@ -1714,13 +1807,14 @@ function arms(opt){
       ctx.bezierCurveTo(104.5, 103.3, 69.5, 108.3, 0.5, 105.9);
       ctx.lineTo(0.5, 14.2);
       ctx.closePath();
-      ctx.fillStyle = "rgb(255, 255, 255)";
-      ctx.fill();
+      //ctx.fillStyle =  "pink";
+      drawPattern(patfill[1]);
+      //ctx.fill();
       ctx.strokeStyle = dark;
       ctx.lineWidth = thick;
       ctx.stroke();
 
-      // umbrella/Path
+      // umbrella/Path - pole
       ctx.beginPath();
       ctx.moveTo(91.8, 62.9);
       ctx.lineTo(102.5, 438.2);
@@ -1728,7 +1822,9 @@ function arms(opt){
       ctx.bezierCurveTo(116.4, 424.1, 116.6, 424.1, 104.2, 55.4);
       ctx.lineTo(91.8, 62.9);
       ctx.closePath();
+      ctx.fillStyle =  "white";
       ctx.fill();
+      ctx.strokeStyle = dark;
       ctx.stroke();
 
       // umbrella/Path
@@ -1743,7 +1839,7 @@ function arms(opt){
       ctx.bezierCurveTo(386.2, 35.8, 396.7, 36.5, 404.6, 50.5);
       ctx.stroke();
 
-      // umbrella/Path
+      // umbrella/Path - outer umbrella
       ctx.beginPath();
       ctx.moveTo(361.8, 0.5);
       ctx.bezierCurveTo(372.1, 1.8, 390.3, 8.3, 408.5, 24.8);
@@ -1767,7 +1863,9 @@ function arms(opt){
       ctx.lineTo(0.5, 0.5);
       ctx.lineTo(361.8, 0.5);
       ctx.closePath();
-      ctx.fill();
+      //ctx.fillStyle =  "pink";
+      drawPattern(patfill[0]);
+      //ctx.fill();
       ctx.stroke();
 
       // umbrella/Path
